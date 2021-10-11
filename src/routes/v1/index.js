@@ -1,6 +1,7 @@
 const express = require('express');
 const authRoute = require('./auth.route');
 const userRoute = require('./user.route');
+const personRoute = require('./person.route');
 const docsRoute = require('./docs.route');
 const config = require('../../config/config');
 
@@ -15,6 +16,10 @@ const defaultRoutes = [
     path: '/users',
     route: userRoute,
   },
+  {
+    path: '/persons',
+    route: personRoute,
+  },
 ];
 
 const devRoutes = [
@@ -22,7 +27,7 @@ const devRoutes = [
   {
     path: '/docs',
     route: docsRoute,
-  },
+  }
 ];
 
 defaultRoutes.forEach((route) => {
