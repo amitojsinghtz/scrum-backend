@@ -4,7 +4,7 @@ const createPerson = {
   body: Joi.object().keys({
     name: {firstName:Joi.string().required(),lastName:Joi.string().required()},
     shortName:Joi.string().required(),
-    image:Joi.string().required(),
+   // image:Joi.string().required(),
     skills:Joi.string().required(),
     status:Joi.string().required().valid('active', 'invited', 'disabled', 'recent', 'client'),
     role: Joi.string().required().valid('owner', 'admin', 'user', 'client', 'guest'),
@@ -42,7 +42,7 @@ const updatePerson = {
     .keys({
       name: {firstName:Joi.string().required(),lastName:Joi.string().required()},
       shortName:Joi.string().required(),
-      image:Joi.string().required(),
+    //  image:Joi.string().required(),
       skills:Joi.string().required(),
       status:Joi.string().required().valid('active', 'invited', 'disabled', 'recent', 'client'),
       role: Joi.string().required().valid('owner', 'admin', 'user', 'client', 'guest'),

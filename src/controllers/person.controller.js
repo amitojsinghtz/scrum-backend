@@ -8,13 +8,6 @@ const createPerson = catchAsync(async (req, res) => {
   res.status(httpStatus.CREATED).send(person);
 });
 
-// const getUsers = catchAsync(async (req, res) => {
-//   const filter = pick(req.query, ['name', 'role','status']);
-//   const options = pick(req.query, ['sortBy', 'limit', 'page']);
-//   const result = await userService.queryUsers(filter, options);
-//   res.send(result);
-// });
-
 const getPersons = catchAsync(async (req, res) => {
   const filter = pick(req.query, ['name', 'role', 'status']);
   const options = pick(req.query, ['sortBy', 'limit', 'page']);

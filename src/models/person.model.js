@@ -14,9 +14,9 @@ const personSchema = mongoose.Schema(
   shortName: {
     type: String,
   },
-  image: {
-    type: String,
-  },
+  // image: {
+  //   type: String,
+  // },
   skills: {
     type: String,
   },
@@ -40,7 +40,7 @@ const personSchema = mongoose.Schema(
   createdBy: String,
   createdAt: {
     type: Date,
-    default: Date.now,
+   // default: Date.now,
    // timestamp:true
   },
   updatedBy: String,
