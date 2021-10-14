@@ -9,10 +9,13 @@ const createPerson = catchAsync(async (req, res) => {
 });
 
 const getPersons = catchAsync(async (req, res) => {
-  const filter = pick(req.query, ['name', 'role', 'status']);
-  const options = pick(req.query, ['sortBy', 'limit', 'page']);
-  const result = await personService.queryPersons(filter, options);
-  res.send(result);
+  // const filter = pick(req.query, ['name', 'role', 'status']);
+  // const options = pick(req.query, ['sortBy', 'limit', 'page']);
+  // const result = await personService.queryPersons(filter, options);
+  // console.log(result)
+  // res.send(result);
+  result = await personService.findAll();
+  return res.json(result)
 });
 const getPersonById = catchAsync(async (req, res) => {
   const user = await personService.getPersonById(req.params.userId);

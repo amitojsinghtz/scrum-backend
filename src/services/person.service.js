@@ -20,6 +20,11 @@ const queryPersons = async (filter, options) => {
   return persons;
 };
 
+const findAll = async () => {
+  const persons = await Person.find();
+  return persons;
+};
+
 const getPersonById = async (id) => {
   return Person.findById(id);
 };
@@ -46,5 +51,6 @@ module.exports = {
   queryPersons,
   getPersonById,
   updatePersonById,
-  deletePersonById
+  deletePersonById,
+  findAll
 };

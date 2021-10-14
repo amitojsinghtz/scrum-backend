@@ -50,7 +50,7 @@ const personSchema = mongoose.Schema(
     //timestamp:true
   },
 });
-personSchema.plugin(toJSON);
-personSchema.plugin(paginate);
+// personSchema.plugin(toJSON);
+// personSchema.plugin(paginate);
 const Person = mongoose.model('Person', personSchema);
 module.exports = Person;
