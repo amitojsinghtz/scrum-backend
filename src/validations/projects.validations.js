@@ -9,9 +9,9 @@ const createProject = {
     role: Joi.string().required().valid('owner', 'admin', 'user', 'client', 'guest'),
     estimated_hours:Joi.number().required(),
     created_at:Joi.date(),
-    created_by:Joi.string().required(),
+     created_by:Joi.string(),
     updated_at:Joi.date(),
-    updated_by:Joi.string().required()
+     updated_by:Joi.string()
   }),
 };
 

@@ -78,6 +78,7 @@ const projectsSchema = mongoose.Schema(
         },
         created_by:{
             type:String,
+            default:"xyz"
         },
         created_at:{
             type: Date,
@@ -85,6 +86,7 @@ const projectsSchema = mongoose.Schema(
         },
         updated_by:{
             type:String,
+            default:"xyz"
         },
         updated_at:{
             type: Date,
@@ -92,7 +94,7 @@ const projectsSchema = mongoose.Schema(
         }
     }
 );
-projectsSchema.plugin(toJSON);
+// projectsSchema.plugin(toJSON);
 projectsSchema.plugin(paginate);
 const Projects = mongoose.model('Projects', projectsSchema);
 module.exports = Projects;

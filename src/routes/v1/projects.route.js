@@ -7,7 +7,7 @@ const projectController = require('../../controllers/projects.controller');
 const router = express.Router();
 
 router.route('/')
-.post(validate(projectValidation.createProject), projectController.createProject)
+.post(projectController.createProject)
 .get(validate(projectValidation.getProject), projectController.getProject);
 
 router
