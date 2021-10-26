@@ -4,8 +4,32 @@ const pick = require('../utils/pick');
 const { personService } = require('../services');
 
 const createPerson = catchAsync(async (req, res) => {
-  const person = await personService.createPerson(req.body);
-  res.status(httpStatus.CREATED).send(person);
+ // console.log(req.body.email.split(',').length)
+  for(let i=0;i<req.body.email.split(',').length;i++)
+  {
+   const email=req.body.email.split(',')[i]
+   //const name=
+   const person = await personService.createPerson({
+      email: email,
+      assignedproject: req.body.assignedproject,
+      role: req.body.role,
+      color:req.body.color,
+     // name: {
+         firstName:email.split('@')[0]
+         //}
+         ,
+      // name: { firstName: req.body.email.substring(0, req.body.email.lastIndexOf('@')) },
+      shortName:email.substring(0, 2)
+
+      // shortName:
+      //   req.body.email
+      //     .substring(0, req.body.email.lastIndexOf('.' || '@'))
+      //     .split('')
+      //     .shift()
+      //     .charAt(0) + req.body.email.substring(0, req.body.email.lastIndexOf('@')).split('').pop().charAt(0),
+    });
+  }
+  res.status(httpStatus.CREATED).send();
 });
 
 const getPersons = catchAsync(async (req, res) => {
@@ -26,6 +50,7 @@ const updatePerson = catchAsync(async (req, res) => {
   res.send(user);
 });
 const deletePerson = catchAsync(async (req, res) => {
+  console.log(req.params.userId);
   await personService.deletePersonById(req.params.userId);
   res.status(httpStatus.NO_CONTENT).send();
 });

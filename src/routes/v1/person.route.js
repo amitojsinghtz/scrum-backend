@@ -5,7 +5,6 @@ const personValidation = require('../../validations/person.validation');
 const personController = require('../../controllers/person.controller');
 
 const router = express.Router();
-
 router
 .route('/')
 .post( validate(personValidation.createPerson), personController.createPerson)
@@ -14,7 +13,8 @@ router
 router
 .route('/:userId')
 .get(auth('getPersons'), validate(personValidation.getPersonById), personController.getPersonById)
-.put(auth('managePersons'), validate(personValidation.updatePerson), personController.updatePerson)
-.delete(auth('managePersons'), validate(personValidation.deletePerson), personController.deletePerson);
+.put(personController.updatePerson)
+//.put( validate(personValidation.updatePerson), personController.updatePerson)
+.delete( validate(personValidation.deletePerson), personController.deletePerson);
 
 module.exports = router;
