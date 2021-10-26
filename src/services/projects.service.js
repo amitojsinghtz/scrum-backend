@@ -9,6 +9,7 @@ const ApiError = require('../utils/ApiError');
  */
  const createProject = async (projectBody) => {
     if (Projects) {
+      console.log(projectBody)
       return Projects.create(projectBody);
     } else {
       throw new ApiError(httpStatus.BAD_REQUEST, 'Project not Exist');
