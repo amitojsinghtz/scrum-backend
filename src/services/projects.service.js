@@ -17,7 +17,12 @@ const ApiError = require('../utils/ApiError');
   };
 
   const getProject = async (filter,options) => {
-    const projectss = await Projects.paginate(filter,options);
+    const projects = await Project.paginate(filter,options);
+    return projects;
+  };
+
+  const findAll = async () => {
+    const projectss = await Projects.find();
     return projectss;
   };
 
@@ -46,6 +51,7 @@ const ApiError = require('../utils/ApiError');
   module.exports = {
     createProject,
     getProject,
+    findAll,
     getProjectById,
     deleteProjectById,
     updateProjectById

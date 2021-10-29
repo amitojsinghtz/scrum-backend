@@ -9,9 +9,11 @@ const createProject = {
     role: Joi.string().required().valid('owner', 'admin', 'user', 'client', 'guest'),
     estimated_hours:Joi.number().required(),
     created_at:Joi.date(),
-     created_by:Joi.string(),
+    created_by:Joi.string(),
     updated_at:Joi.date(),
-     updated_by:Joi.string()
+    updated_by:Joi.string(),
+    start_date:Joi.string().required(),
+    end_date:Joi.string().required()
   }),
 };
 
@@ -26,7 +28,9 @@ const getProject = {
       created_at:Joi.date(),
       created_by:Joi.string(),
       updated_at:Joi.date(),
-      updated_by:Joi.string()
+      updated_by:Joi.string(),
+      start_date:Joi.string(),
+      end_date:Joi.string()
   })
   };
 
@@ -48,6 +52,7 @@ const getProject = {
     }),
     body: Joi.object()
       .keys({
+        _id: Joi.string().required(),
         name:Joi.string().required(),
         short_name:Joi.string().required(),
         status:Joi.string().required().valid("started","onhold","stack","complete"),
@@ -55,9 +60,11 @@ const getProject = {
         role: Joi.string().required().valid('owner', 'admin', 'user', 'client', 'guest'),
         estimated_hours:Joi.number().required(),
         created_at:Joi.date(),
-        created_by:Joi.string().required(),
+        created_by:Joi.string(),
         updated_at:Joi.date(),
-        updated_by:Joi.string().required()
+        updated_by:Joi.string(),
+        start_date:Joi.string(),
+        end_date:Joi.string()
       })
       .min(1),
   };

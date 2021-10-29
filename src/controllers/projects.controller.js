@@ -9,10 +9,12 @@ const createProject = catchAsync(async (req, res) => {
 });
 
 const getProject = catchAsync(async (req, res) => {
-    const filter = pick(req.query, ['name', 'short_name','priority', 'status','role','estimated_hours','created_by','created_at','updated_by','updated_at']);
-    const options = pick(req.query, ['created_by','created_at','updated_by','updated_at']);
-    const result = await projectService.getProject(filter,options);
-    res.send(result);
+    // const filter = pick(req.query, ['name', 'short_name','priority', 'status','role','estimated_hours','created_by','created_at','updated_by','updated_at']);
+    // const options = pick(req.query, ['created_by','created_at','updated_by','updated_at']);
+    // const result = await projectService.getProject(filter,options);
+    // res.send(result);
+    result = await projectService.findAll();
+    return res.json(result)
   });
 
   const getProjectById = catchAsync(async (req, res) => {
@@ -29,6 +31,7 @@ const getProject = catchAsync(async (req, res) => {
   });
 
   const updateProject = catchAsync(async (req, res) => {
+    console.log(req.params)
     const project = await projectService.updateProjectById(req.params.projectId, req.body);
     res.send(project);
   });

@@ -42,10 +42,10 @@ const projectsSchema = mongoose.Schema(
         estimated_hours:{
             type:Number,
         },
-        date_range:{
-            type: Date,
-            default: Date.now,
-        },
+        // date_range:{
+        //     type: Date,
+        //     default: Date.now,
+        // },
         project_manager:{
             type:String
         },
@@ -91,10 +91,16 @@ const projectsSchema = mongoose.Schema(
         updated_at:{
             type: Date,
             default: Date.now,
+        },
+        start_date:{
+            type:String,
+        },
+        end_date:{
+            type:String,
         }
     }
 );
 // projectsSchema.plugin(toJSON);
-projectsSchema.plugin(paginate);
+// projectsSchema.plugin(paginate);
 const Projects = mongoose.model('Projects', projectsSchema);
 module.exports = Projects;
